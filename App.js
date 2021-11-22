@@ -7,7 +7,6 @@ import EqualComp from "./component/EqualComp";
 
 export default function App() {
   const [number, setNumber] = useState({
-    value: 0,
     count: 0,
   });
 
@@ -20,14 +19,18 @@ export default function App() {
   };
 
   const calculation = () => {
-    const value = eval(number.count);
-    setNumber({ count: value });
+    if (number.count.length < 3) {
+      return number.count;
+    } else {
+      const value = eval(number.count);
+      setNumber({ count: value });
+    }
   };
 
   return (
     <NativeBaseProvider>
       <StatusBar style="auto" />
-      <Center style={{ backgroundColor: "#191919" }} flex={1} paddingTop={150}>
+      <Center style={{ backgroundColor: "#000" }} flex={1} paddingTop={150}>
         <Display setNumber={setNumber} count={number.count} />
         <BtnComp
           onPressHandle={onPressHandle}

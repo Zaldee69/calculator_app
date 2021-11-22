@@ -5,7 +5,7 @@ import { TouchableOpacity } from "react-native";
 const EqualComp = (props) => {
   return (
     <VStack flexDirection="row">
-      <TouchableOpacity onPress={() => props.onPressHandle(5)}>
+      <TouchableOpacity onPress={() => props.onPressHandle("5")}>
         <Text
           m={1}
           rounded="sm"
@@ -20,7 +20,7 @@ const EqualComp = (props) => {
           5
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => props.onPressHandle(6)}>
+      <TouchableOpacity onPress={() => props.onPressHandle("6")}>
         <Text
           rounded="sm"
           m={1}
@@ -36,7 +36,7 @@ const EqualComp = (props) => {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => props.onPressHandle(props.thirdBtn)}>
+      <TouchableOpacity onPress={() => props.onPressHandle("%")}>
         <Text
           rounded="sm"
           m={1}

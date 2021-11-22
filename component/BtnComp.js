@@ -1,11 +1,11 @@
-import { Flex, VStack, Text } from "native-base";
+import { Flex, HStack, Text } from "native-base";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
 const BtnComp = (props) => {
   return (
     <Flex>
-      <VStack flexDirection="row">
+      <HStack flexDirection="row">
         <TouchableOpacity onPress={() => props.onPressHandle(props.firstBtn)}>
           <Text
             m={1}
@@ -68,7 +68,7 @@ const BtnComp = (props) => {
             {props.fourthBtn}
           </Text>
         </TouchableOpacity>
-      </VStack>
+      </HStack>
     </Flex>
   );
 };

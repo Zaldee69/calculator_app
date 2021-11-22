@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/calculator.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/apa.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -1,64 +1,50 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { NativeBaseProvider, Center } from "native-base";
+import { NativeBaseProvider, View, Text } from "native-base";
 import BtnComp from "./component/BtnComp";
-import Display from "./component/Display";
-import EqualComp from "./component/EqualComp";
 
 export default function App() {
-  const [number, setNumber] = useState({
-    count: 0,
-  });
+  const [number, setNumber] = useState("");
 
   const onPressHandle = (num) => {
-    if (number.count === 0) {
-      setNumber({ count: num });
+    if (number === 0) {
+      setNumber(num);
     } else {
-      setNumber({ count: number.count + num });
+      setNumber(number + num);
     }
   };
 
   const calculation = () => {
-    if (number.count.length < 3) {
-      return number.count;
+    if (number.length < 3) {
+      return number;
     } else {
-      const value = eval(number.count);
-      setNumber({ count: value });
+      const value = eval(number);
+      setNumber(value);
     }
   };
 
   return (
     <NativeBaseProvider>
+      <View
+        justifyContent="flex-end"
+        alignItems="flex-end"
+        pr={3}
+        pb={3}
+        backgroundColor="#22252D"
+        flex={0.6}
+      >
+        <Text fontSize={30} paddingBottom={5} paddingRight={5} color="#fff">
+          {number}
+        </Text>
+      </View>
       <StatusBar style="auto" />
-      <Center style={{ backgroundColor: "#000" }} flex={1} paddingTop={150}>
-        <Display setNumber={setNumber} count={number.count} />
+      <View flex={1} backgroundColor="#22252D">
         <BtnComp
-          onPressHandle={onPressHandle}
-          firstBtn="1"
-          secondBtn="2"
-          thirdBtn="-"
-          fourthBtn="+"
-        />
-        <BtnComp
-          onPressHandle={onPressHandle}
-          firstBtn="3"
-          secondBtn="4"
-          thirdBtn="/"
-          fourthBtn="*"
-        />
-        <EqualComp
-          onPressHandle={onPressHandle}
           calculation={calculation}
-          thirdBtn="%"
-        />
-        <BtnComp
+          setNumber={setNumber}
           onPressHandle={onPressHandle}
-          firstBtn="7"
-          secondBtn="8"
-          thirdBtn="9"
-          fourthBtn="0"
         />
-      </Center>
+      </View>
     </NativeBaseProvider>
   );
 }
